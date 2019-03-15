@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "base64.hpp"
 using namespace std;
 
@@ -121,6 +122,16 @@ std::string base64_decode( const std::string& encode_string ){
 
 int main(){
 
+    vector<unsigned char> bignum;
+    bignum.push_back(0);
+    bignum.push_back(0);
+    bignum.push_back('a');
+    bignum.push_back('d');
+    bignum.push_back('f');
+    auto enc_str = base64::base64_encode(bignum.data(),bignum.size());
+    cout<<enc_str<<endl;
+    cout<<base64::base64_decode(enc_str)<<endl;
+    
     string str;
     while(1){
         cin>>str;
@@ -128,7 +139,6 @@ int main(){
         cout<<base64_str<<endl;
         cout<<base64::base64_decode(base64_str)<<endl;
     }
-    
 
     return 0;
 }
