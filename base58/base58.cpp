@@ -98,6 +98,16 @@ std::string base58_decode( const std::string& dec_str ){
 }
 int main(){
 
+    vector<unsigned char> bignum;
+    bignum.push_back(0);
+    bignum.push_back(0);
+    bignum.push_back('a');
+    bignum.push_back('d');
+    bignum.push_back('f');
+    auto enc_str = base58::base58_encode(bignum.data(),bignum.size());
+    cout<<enc_str<<endl;
+    cout<<base58::base58_decode(enc_str)<<endl;
+
     string str;
     while(1){
         cin>>str;
